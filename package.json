@@ -39,8 +39,8 @@
   },
   "dependencies": {
     "@types/node-fetch": "^2.6.4",
-    "discord.js": "^14.9.0",
-    "midjourney": "^3.0.81",
+    "discord.js": "^14.13.0",
+    "midjourney": "^4.3.13",
     "node-fetch": "2.6.11",
     "socks-proxy-agent": "^8.0.1"
   }
