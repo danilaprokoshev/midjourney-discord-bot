@@ -98,15 +98,15 @@ export class MidjourneyBot extends Midjourney {
       index,
       msgId: messageID,
       hash: messageHash,
-      flags: 0
+      flags: 0,
     });
     if (httpStatus !== 204) {
       await (<TextChannel>this.client.channels.cache.get(channelId)).send(
-        "Request has failed; please try later"
+        "Запрос завершился неуспешно. Попробуйте снова..."
       );
     } else {
       await (<TextChannel>this.client.channels.cache.get(channelId)).send(
-        "Your upscale image is being prepared, please wait a moment..."
+        "Ваш апскейл обрабатывается, подождите, пожалуйста, секундочку..."
       );
     }
   }
@@ -117,21 +117,13 @@ export class MidjourneyBot extends Midjourney {
     this.log(msg?.attachments.first()?.url);
     const messageHash = this.UriToHash(<string>msg.attachments.first()?.url);
     this.MJApi.config.ChannelId = channelId;
-    const httpStatus = await this.MJApi.VariationApi({
+    await this.Variation({
       index,
+      content: msg.content,
       msgId: messageID,
       hash: messageHash,
-      flags: 0
+      flags: 0,
     });
-    if (httpStatus !== 204) {
-      await (<TextChannel>this.client.channels.cache.get(channelId)).send(
-        "Request has failed; please try later"
-      );
-    } else {
-      await (<TextChannel>this.client.channels.cache.get(channelId)).send(
-        "Your variations image is being prepared, please wait a moment..."
-      );
-    }
   }
 
   private async onMessage(message: Message<boolean>) {
