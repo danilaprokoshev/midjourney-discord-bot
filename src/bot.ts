@@ -58,10 +58,10 @@ export class MidjourneyBot extends Midjourney {
     this.MJApi.config.ChannelId = interaction.channelId;
     const httpStatus = await this.MJApi.ImagineApi(prompt);
     if (httpStatus !== 204) {
-      await interaction.reply("Request has failed; please try later");
+      await interaction.reply("Запрос завершился неуспешно; попробуйте позднее");
     } else {
       await interaction.reply(
-        "Your image is being prepared, please wait a moment..."
+        "Твоё следующее, лучшее изображение, астравитянин, уже готовится. Подожди минуточку..."
       );
     }
   }
