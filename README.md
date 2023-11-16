@@ -67,7 +67,7 @@ npm install midjourney-discord
 ## Usage
 ### Docker
 ```bash
-docker run -d --env-file .env densol/midjourney-discord-bot
+docker run -d --env-file .env eiphor/midjourney-discord-bot:latest
 ```
 
 
