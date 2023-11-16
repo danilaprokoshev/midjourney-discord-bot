@@ -58,7 +58,9 @@ export class MidjourneyBot extends Midjourney {
     this.MJApi.config.ChannelId = interaction.channelId;
     const httpStatus = await this.MJApi.ImagineApi(prompt);
     if (httpStatus !== 204) {
-      await interaction.reply("Запрос завершился неуспешно; попробуйте позднее");
+      await interaction.reply(
+        "Запрос завершился неуспешно; попробуйте позднее"
+      );
     } else {
       await interaction.reply(
         "Твоё следующее, лучшее изображение, астравитянин, уже готовится. Подожди минуточку..."
@@ -132,7 +134,7 @@ export class MidjourneyBot extends Midjourney {
     if (message.reference === null) return;
     if (message.reference.messageId === undefined) return;
     if (message.mentions.repliedUser?.id !== "936929561302675456") return;
-    const option = message.content;
+    const option = message.content.toLowerCase();
     const channelId = message.channelId;
     switch (option) {
       case "v1":
@@ -159,6 +161,8 @@ export class MidjourneyBot extends Midjourney {
       case "u4":
         this.upscale(4, channelId, message.reference.messageId);
         break;
+      default:
+        return;
     }
   }
 }
