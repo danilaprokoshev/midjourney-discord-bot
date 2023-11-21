@@ -66,8 +66,10 @@ npm install midjourney-discord
 
 ## Usage
 ### Docker
+Из корневой директории необходимо запустить команду ниже, при этом убедиться, что в этой корневой директории содержится файл .env с описанными выше в README переменными окружения:
+
 ```bash
-docker run -d --env-file .env eiphor/midjourney-discord-bot:latest
+docker build -t midjourney-discord-bot .; docker run -d --env-file .env midjourney-discord-bot
 ```
 
 
